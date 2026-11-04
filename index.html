@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Coletivo do Smart · Catálogo</title>
+<meta name="description" content="iPhones novos e seminovos, celulares, fones, relógios e casa inteligente com pronta entrega em Santa Maria. Peça pelo WhatsApp.">
+<meta name="theme-color" content="#262321">
+<meta property="og:title" content="Coletivo do Smart · Catálogo">
+<meta property="og:description" content="Pronta entrega em Santa Maria. Monte seu pedido e envie pelo WhatsApp.">
+<meta property="og:image" content="logo.webp">
+<link rel="icon" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap">
+<!-- Pixel da Meta: cole aqui o código fornecido pelo gestor de tráfego -->
+<style>
+/* Vitrine do Coletivo do Smart: grafite + dourado champanhe do logo; cards com foto em fundo claro */
+:root{
+  --bg:#1f1d1b; --surface:#2a2724; --ink:#efe8dc; --muted:#a59c8f; --line:#3b3631;
+  --gold:#cdb696; --gold-ink:#1f1d1b; --gold-soft:rgba(205,182,150,.14); --photo:#f6f4f0;
+  --ok:#25d366; --warn:#e3b15a;
+  --display:"Jost","Futura","Century Gothic",sans-serif;
+  --body:"Manrope","Segoe UI",Roboto,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 var(--body);padding-bottom:env(safe-area-inset-bottom,0px)}
+img{max-width:100%;display:block}
+button,input,select{font:inherit;color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:var(--gold)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+header.top{background:#262321;border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:14px}
+.brand{display:flex;align-items:center;gap:12px;min-width:0;text-decoration:none;color:inherit}
+.brand img{width:46px;height:46px;border-radius:50%;flex:none}
+.brand b{display:block;font:500 21px/1.1 var(--display);letter-spacing:.02em}
+.brand small{display:block;font:600 11px var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-top:3px}
+.wa{display:inline-flex;align-items:center;gap:8px;background:var(--ok);color:#06331a;font-weight:700;font-size:14px;text-decoration:none;padding:9px 14px;border-radius:999px;white-space:nowrap}
+.wa svg{width:18px;height:18px}
+@media (max-width:520px){.wa span{display:none}.wa{padding:10px}}
+
+.intro{padding-block:22px 6px}
+.intro h1{font:500 clamp(26px,5vw,38px)/1.1 var(--display);margin:0 0 8px;letter-spacing:.01em;text-wrap:balance}
+.intro p{margin:0;color:var(--muted);max-width:60ch}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.badges span{font-size:12.5px;font-weight:600;border:1px solid var(--line);border-radius:999px;padding:5px 11px;color:var(--ink)}
+.badges span b{color:var(--gold)}
+
+.tools{position:sticky;top:0;z-index:5;background:var(--bg);padding-block:12px;border-bottom:1px solid var(--line)}
+.tools .wrap{display:flex;flex-direction:column;gap:10px}
+.search{width:100%;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:11px 14px;font-size:15px}
+.search::placeholder{color:var(--muted)}
+.chips{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;appearance:none;border:1px solid var(--line);background:transparent;color:var(--ink);font-weight:600;font-size:13px;padding:7px 13px;border-radius:999px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--gold);border-color:var(--gold);color:var(--gold-ink)}
+
+main{padding-block:16px 120px}
+.sec{font:500 20px var(--display);margin:22px 0 12px;letter-spacing:.02em;display:flex;align-items:baseline;gap:10px}
+.sec small{font:500 13px var(--body);color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:12px}
+@media (min-width:700px){.grid{grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.ph{position:relative;aspect-ratio:1/1;background:var(--photo);display:flex;align-items:center;justify-content:center;cursor:pointer;border:0;padding:0;width:100%}
+.ph img{width:100%;height:100%;object-fit:contain;padding:12px}
+.ph .noimg{font:500 26px var(--display);color:#b3a892;letter-spacing:.2em}
+.ph .tag{position:absolute;top:8px;left:8px;font:700 10.5px var(--body);letter-spacing:.06em;text-transform:uppercase;padding:3px 7px;border-radius:4px;background:#262321;color:var(--gold)}
+.ph .tag.last{left:auto;right:8px;background:var(--warn);color:#2b1d00}
+.body{padding:10px 12px 12px;display:flex;flex-direction:column;gap:6px;flex:1;min-width:0}
+.name{margin:0;font-weight:600;font-size:14px;line-height:1.3;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;cursor:pointer}
+.desc{font-size:12px;color:var(--muted)}
+.price{margin-top:auto;display:flex;flex-direction:column;gap:1px;padding-top:6px}
+.price b{font:600 21px/1.15 var(--display);font-variant-numeric:tabular-nums}
+.price span{font-size:12px;color:var(--muted)}
+.price em{font-style:normal;font-size:12.5px;color:var(--ink)}
+.add{appearance:none;border:0;background:var(--gold);color:var(--gold-ink);font-weight:700;font-size:14px;padding:10px;border-radius:9px;cursor:pointer;margin-top:6px}
+.add.in{background:transparent;border:1px solid var(--gold);color:var(--gold)}
+.empty{border:1px dashed var(--line);border-radius:12px;padding:28px;text-align:center;color:var(--muted)}
+
+.notice{margin-top:28px;font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px;max-width:75ch}
+
+/* carrinho */
+.cartbtn{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20;display:flex;align-items:center;gap:10px;background:var(--gold);color:var(--gold-ink);border:0;border-radius:999px;padding:13px 18px;font-weight:700;font-size:15px;box-shadow:0 8px 24px rgba(0,0,0,.45);cursor:pointer}
+.cartbtn .n{background:var(--gold-ink);color:var(--gold);border-radius:999px;min-width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center;font-size:13px;padding:0 7px}
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:30}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(440px,100%);background:var(--surface);z-index:31;display:flex;flex-direction:column;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.drawer header{display:flex;align-items:center;justify-content:space-between;padding:16px;border-bottom:1px solid var(--line)}
+.drawer h2{margin:0;font:500 20px var(--display)}
+.x{appearance:none;border:1px solid var(--line);background:transparent;border-radius:999px;width:36px;height:36px;cursor:pointer;font-size:18px;line-height:1}
+.items{flex:1;overflow-y:auto;padding:8px 16px}
+.it{display:grid;grid-template-columns:56px minmax(0,1fr) auto;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.it img,.it .ni{width:56px;height:56px;border-radius:8px;background:var(--photo);object-fit:contain;padding:4px}
+.it .ni{display:flex;align-items:center;justify-content:center;color:#b3a892;font:500 12px var(--display)}
+.it p{margin:0;font-size:13px;font-weight:600;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.it small{color:var(--muted);font-size:12px}
+.qty{display:flex;align-items:center;gap:6px}
+.qty button{appearance:none;width:30px;height:30px;border-radius:8px;border:1px solid var(--line);background:transparent;cursor:pointer;font-size:16px}
+.qty span{min-width:18px;text-align:center;font-weight:700}
+.checkout{border-top:1px solid var(--line);padding:14px 16px;display:flex;flex-direction:column;gap:10px}
+.tot{display:flex;justify-content:space-between;align-items:baseline}
+.tot b{font:600 22px var(--display);font-variant-numeric:tabular-nums}
+.checkout label{font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:4px}
+.checkout input,.checkout select{background:var(--bg);border:1px solid var(--line);border-radius:9px;padding:10px 12px;font-size:15px;width:100%}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.send{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--ok);color:#06331a;border:0;border-radius:10px;padding:13px;font-weight:800;font-size:15px;cursor:pointer;text-decoration:none}
+.send[aria-disabled="true"]{opacity:.5;pointer-events:none}
+.fine{font-size:11.5px;color:var(--muted);margin:0}
+
+/* detalhe */
+.modal{position:fixed;inset:0;z-index:32;display:flex;align-items:center;justify-content:center;padding:16px}
+.mbox{background:var(--surface);border:1px solid var(--line);border-radius:14px;width:min(560px,100%);max-height:calc(100vh - 32px);overflow:auto;position:relative}
+.mbox .x{position:absolute;top:10px;right:10px;background:var(--surface)}
+.mbox .ph{aspect-ratio:4/3;cursor:default}
+.mbody{padding:16px;display:flex;flex-direction:column;gap:10px}
+.mbody h3{margin:0;font:500 20px/1.25 var(--display)}
+.ptable{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;font-size:14px}
+.ptable td{padding:7px 0;border-bottom:1px solid var(--line)}
+.ptable td:last-child{text-align:right;color:var(--muted)}
+.ptable tr:first-child td{color:var(--ink);font-weight:700}
+@media (prefers-reduced-motion:no-preference){.card{transition:border-color .15s}.card:hover{border-color:var(--gold)}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="logo.webp" alt="" width="46" height="46"><span><b>Coletivo do Smart</b><small>Pronta entrega · Santa Maria</small></span></a>
+    <a class="wa" id="wa-top" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.1 5.1 0 0 0 1.1 2.7 11.7 11.7 0 0 0 4.5 4c1.7.7 2.3.8 3.1.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg><span>Falar no WhatsApp</span></a>
+  </div>
+</header>
+
+<section class="intro">
+  <div class="wrap">
+    <h1>Tecnologia com pronta entrega em Santa Maria</h1>
+    <p>iPhones novos e seminovos, celulares, fones, relógios e casa inteligente. Escolha seus produtos, monte o pedido e envie direto para o nosso WhatsApp.</p>
+    <div class="badges"><span><b>PIX</b> pelo preço à vista</span><span>Até <b>18x</b> no cartão</span><span id="upd">Preços de hoje</span></div>
+  </div>
+</section>
+
+<div class="tools">
+  <div class="wrap">
+    <input class="search" id="q" type="search" placeholder="Buscar: iPhone 15, Galaxy A17, AirPods…" aria-label="Buscar produtos" autocomplete="off">
+    <div class="chips" id="chips" role="toolbar" aria-label="Categorias"></div>
+  </div>
+</div>
+
+<main>
+  <div class="wrap">
+    <div id="list"><p class="empty">Carregando produtos…</p></div>
+    <p class="notice" id="notice">Preços válidos para hoje e sujeitos a alteração sem aviso, pois acompanham a cotação do dólar. O preço à vista vale para PIX, dinheiro e débito. No cartão de crédito, o valor parcelado inclui as taxas da operadora. Disponibilidade, cores e entrega são confirmadas pelo vendedor no WhatsApp.</p>
+  </div>
+</main>
+
+<button class="cartbtn" id="cartbtn" hidden><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6h15l-1.5 9h-12z"/><path d="M6 6 5 3H2"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg><span>Meu pedido</span><span class="n" id="cartn">0</span></button>
+
+<div class="overlay" id="ov" hidden></div>
+<aside class="drawer" id="drawer" hidden aria-labelledby="dtitle" role="dialog">
+  <header><h2 id="dtitle">Meu pedido</h2><button class="x" id="dclose" aria-label="Fechar">×</button></header>
+  <div class="items" id="items"></div>
+  <form class="checkout" id="form" novalidate>
+    <div class="tot"><span>Total à vista (PIX)</span><b id="total">R$ 0,00</b></div>
+    <label for="pay">Forma de pagamento
+      <select id="pay"></select>
+    </label>
+    <div class="row2">
+      <label for="nome">Seu nome<input id="nome" autocomplete="name" placeholder="Nome"></label>
+      <label for="bairro">Bairro / cidade<input id="bairro" autocomplete="address-level2" placeholder="Ex.: Centro, Santa Maria"></label>
+    </div>
+    <a class="send" id="send" href="#" target="_blank" rel="noopener" aria-disabled="true">Enviar pedido pelo WhatsApp</a>
+    <p class="fine">O WhatsApp abre com o pedido pronto. É só tocar em enviar: um vendedor confirma disponibilidade, cor e entrega.</p>
+  </form>
+</aside>
+
+<div class="modal" id="modal" hidden role="dialog" aria-modal="true"><div class="overlay" id="mov"></div><div class="mbox" id="mbox"></div></div>
+
+<script>
+(()=>{
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const brl=v=>v.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
+let D=null, cat='', q='', cart={};
+try{cart=JSON.parse(localStorage.getItem('cs-cart')||'{}')||{}}catch(e){cart={}}
+const save=()=>{try{localStorage.setItem('cs-cart',JSON.stringify(cart))}catch(e){}};
+const titulo=n=>n.replace(/^Celular /,'');
+const parc=(v,t)=>v/(1-t/100);
+function maxParc(v){const [n,t]=D.taxas[D.taxas.length-1]; const tot=parc(v,t); return {n,tot,pa:tot/n};}
+const waBase=()=>'https://wa.me/'+D.whatsapp;
+
+function filtered(){
+  const words=q.trim().toLowerCase().split(/\s+/).filter(Boolean);
+  return D.produtos.filter(p=>(!cat||p.cat===cat)&&words.every(w=>(p.nome+' '+p.cat+' '+(p.desc||'')+' '+(p.selo||'')).toLowerCase().includes(w)));
+}
+function card(p){
+  const m=maxParc(p.preco); const inCart=cart[p.id];
+  return `<article class="card">
+    <button class="ph" data-open="${esc(p.id)}" aria-label="Ver detalhes de ${esc(titulo(p.nome))}">${p.foto?`<img src="${esc(p.foto)}" alt="" loading="lazy">`:'<span class="noimg">CS</span>'}${p.selo?`<span class="tag">${esc(p.selo)}</span>`:''}${p.ultimas?'<span class="tag last">Últimas</span>':''}</button>
+    <div class="body">
+      <p class="name" data-open="${esc(p.id)}">${esc(titulo(p.nome))}</p>
+      ${p.desc?`<span class="desc">${esc(p.desc)}</span>`:''}
+      <div class="price"><span>à vista no PIX</span><b>${brl(p.preco)}</b><em>ou ${m.n}x de ${brl(m.pa)}</em></div>
+      <button class="add ${inCart?'in':''}" data-add="${esc(p.id)}">${inCart?`No pedido (${inCart})`:'Adicionar ao pedido'}</button>
+    </div></article>`;
+}
+function render(){
+  const r=filtered();
+  if(!r.length){$('list').innerHTML='<p class="empty">Nenhum produto encontrado. Tente outra busca ou fale com a gente no WhatsApp.</p>';return}
+  const cats=cat?[cat]:D.categorias;
+  $('list').innerHTML=cats.map(c=>{const ps=r.filter(p=>p.cat===c); if(!ps.length) return ''; return `<h2 class="sec">${esc(c)} <small>${ps.length}</small></h2><div class="grid">${ps.map(card).join('')}</div>`}).join('');
+}
+function chips(){
+  $('chips').innerHTML=[['','Todos'],...D.categorias.map(c=>[c,c])].map(([v,l])=>`<button class="chip" data-cat="${esc(v)}" aria-pressed="${cat===v}">${esc(l)}</button>`).join('');
+}
+const byId=id=>D.produtos.find(p=>p.id===id);
+function count(){return Object.values(cart).reduce((a,b)=>a+b,0)}
+function cartTotal(){return Object.entries(cart).reduce((a,[id,n])=>{const p=byId(id);return a+(p?p.preco*n:0)},0)}
+function refreshCart(){
+  for(const id of Object.keys(cart)) if(!byId(id)) delete cart[id];
+  save(); const n=count(); $('cartn').textContent=n; $('cartbtn').hidden=n===0;
+  const tot=cartTotal(); $('total').textContent=brl(tot);
+  const sel=$('pay'), cur=sel.value;
+  sel.innerHTML=`<option value="0">À vista: PIX, dinheiro ou débito · ${brl(tot)}</option>`+D.taxas.map(([k,t])=>{const T=parc(tot,t);return `<option value="${k}">Cartão ${k}x de ${brl(T/k)} · total ${brl(T)}</option>`}).join('');
+  if([...sel.options].some(o=>o.value===cur)) sel.value=cur;
+  $('items').innerHTML=n?Object.entries(cart).map(([id,q])=>{const p=byId(id);return `<div class="it">${p.foto?`<img src="${esc(p.foto)}" alt="">`:'<span class="ni">CS</span>'}<div><p>${esc(titulo(p.nome))}</p><small>${p.desc?esc(p.desc)+' · ':''}${brl(p.preco)}</small></div><div class="qty"><button type="button" data-dec="${esc(id)}" aria-label="Diminuir">−</button><span>${q}</span><button type="button" data-inc="${esc(id)}" aria-label="Aumentar">+</button></div></div>`}).join(''):'<p class="empty">Seu pedido está vazio.</p>';
+  updateSend();
+}
+function message(){
+  const tot=cartTotal(); const k=Number($('pay').value);
+  const lines=Object.entries(cart).map(([id,q])=>{const p=byId(id);return `• ${q}x ${titulo(p.nome)}${p.desc?' ('+p.desc+')':''} · ${brl(p.preco*q)}`});
+  let pag='À vista (PIX, dinheiro ou débito): '+brl(tot);
+  if(k){const t=D.taxas.find(x=>x[0]===k)[1]; const T=parc(tot,t); pag=`Cartão em ${k}x de ${brl(T/k)} (total ${brl(T)})`;}
+  const nome=$('nome').value.trim(), bairro=$('bairro').value.trim();
+  return `Olá! Quero fazer um pedido pelo catálogo:\n\n${lines.join('\n')}\n\nTotal à vista: ${brl(tot)}\nPagamento: ${pag}`+(nome?`\nNome: ${nome}`:'')+(bairro?`\nBairro/cidade: ${bairro}`:'')+`\n\n(Preços do site de ${$('upd').dataset.d||'hoje'})`;
+}
+function updateSend(){const ok=count()>0; const a=$('send'); a.setAttribute('aria-disabled',!ok); a.href=ok?waBase()+'?text='+encodeURIComponent(message()):'#';}
+function openDrawer(){$('drawer').hidden=false;$('ov').hidden=false;document.body.style.overflow='hidden'}
+function closeDrawer(){$('drawer').hidden=true;$('ov').hidden=true;document.body.style.overflow=''}
+function openModal(id){
+  const p=byId(id); if(!p) return;
+  $('mbox').innerHTML=`<button class="x" id="mclose" aria-label="Fechar">×</button><div class="ph">${p.foto?`<img src="${esc(p.foto)}" alt="">`:'<span class="noimg">CS</span>'}</div>
+  <div class="mbody"><h3>${esc(titulo(p.nome))}</h3>${p.desc?`<span class="desc">${esc(p.desc)}</span>`:''}
+  <table class="ptable"><tr><td>À vista (PIX, dinheiro ou débito)</td><td>${brl(p.preco)}</td></tr>${D.taxas.map(([k,t])=>{const T=parc(p.preco,t);return `<tr><td>${k}x de ${brl(T/k)}</td><td>total ${brl(T)}</td></tr>`}).join('')}</table>
+  <button class="add" data-add="${esc(p.id)}">Adicionar ao pedido</button></div>`;
+  $('modal').hidden=false; document.body.style.overflow='hidden';
+}
+function closeModal(){$('modal').hidden=true;document.body.style.overflow=''}
+
+document.addEventListener('click',e=>{
+  const t=e.target.closest('[data-add],[data-open],[data-cat],[data-inc],[data-dec]'); if(!t) return;
+  if(t.dataset.add){cart[t.dataset.add]=(cart[t.dataset.add]||0)+1; refreshCart(); render(); if(!$('modal').hidden) closeModal();}
+  else if(t.dataset.open) openModal(t.dataset.open);
+  else if(t.dataset.cat!==undefined){cat=t.dataset.cat; chips(); render(); window.scrollTo({top:document.querySelector('.tools').offsetTop,behavior:'smooth'});}
+  else if(t.dataset.inc){cart[t.dataset.inc]++; refreshCart(); render();}
+  else if(t.dataset.dec){if(--cart[t.dataset.dec]<=0) delete cart[t.dataset.dec]; refreshCart(); render();}
+});
+$('cartbtn').onclick=openDrawer; $('dclose').onclick=closeDrawer; $('ov').onclick=closeDrawer;
+document.addEventListener('click',e=>{if(e.target.id==='mclose'||e.target.id==='mov') closeModal();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();closeDrawer();}});
+for(const id of ['pay','nome','bairro']) $(id).addEventListener('input',updateSend);
+$('pay').addEventListener('change',updateSend);
+$('form').addEventListener('submit',e=>e.preventDefault());
+let qt; $('q').addEventListener('input',e=>{clearTimeout(qt);qt=setTimeout(()=>{q=e.target.value;render()},150)});
+
+fetch('dados.json',{cache:'no-cache'}).then(r=>r.json()).then(d=>{
+  D=d;
+  const dt=d.atualizado?new Date(d.atualizado):null;
+  if(dt){const s=dt.toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit',year:'numeric'}); $('upd').innerHTML=`Atualizado em <b>${s}</b>`; $('upd').dataset.d=s;}
+  $('wa-top').href=waBase()+'?text='+encodeURIComponent('Olá! Vim pelo catálogo do Coletivo do Smart.');
+  chips(); render(); refreshCart();
+}).catch(()=>{$('list').innerHTML='<p class="empty">Não foi possível carregar os produtos. Atualize a página ou fale com a gente pelo WhatsApp: (55) 99162-5445.</p>'});
+})();
+</script>
+</body>
+</html>
