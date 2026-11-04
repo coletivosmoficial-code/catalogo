@@ -81,6 +81,9 @@ main{padding-block:16px 120px}
 .price em{font-style:normal;font-size:12.5px;color:var(--ink)}
 .add{appearance:none;border:0;background:var(--gold);color:var(--gold-ink);font-weight:700;font-size:14px;padding:10px;border-radius:9px;cursor:pointer;margin-top:6px}
 .add.in{background:transparent;border:1px solid var(--gold);color:var(--gold)}
+.more{display:flex;justify-content:center;margin:14px 0 4px}
+.more button,.seeall{appearance:none;border:1px solid var(--gold);background:transparent;color:var(--gold);font-weight:700;font-size:14px;padding:10px 18px;border-radius:999px;cursor:pointer}
+.sec .seeall{margin-left:auto;padding:5px 12px;font-size:12.5px}
 .empty{border:1px dashed var(--line);border-radius:12px;padding:28px;text-align:center;color:var(--muted)}
 
 .notice{margin-top:28px;font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px;max-width:75ch}
@@ -183,7 +186,7 @@ main{padding-block:16px 120px}
 const $=id=>document.getElementById(id);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const brl=v=>v.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
-let D=null, cat='', q='', cart={};
+let D=null, cat='', q='', cart={}, shown=48;
 try{cart=JSON.parse(localStorage.getItem('cs-cart')||'{}')||{}}catch(e){cart={}}
 const save=()=>{try{localStorage.setItem('cs-cart',JSON.stringify(cart))}catch(e){}};
 const titulo=n=>n.replace(/^Celular /,'');
@@ -209,11 +212,18 @@ function card(p){
 function render(){
   const r=filtered();
   if(!r.length){$('list').innerHTML='<p class="empty">Nenhum produto encontrado. Tente outra busca ou fale com a gente no WhatsApp.</p>';return}
-  const cats=cat?[cat]:D.categorias;
-  $('list').innerHTML=cats.map(c=>{const ps=r.filter(p=>p.cat===c); if(!ps.length) return ''; return `<h2 class="sec">${esc(c)} <small>${ps.length}</small></h2><div class="grid">${ps.map(card).join('')}</div>`}).join('');
+  if(!cat && !q.trim()){
+    // vitrine: os mais vendidos de cada categoria
+    $('list').innerHTML=D.categorias.map(c=>{const all=r.filter(p=>p.cat===c); const ps=all.filter(p=>p.top).sort((a,b)=>a.top-b.top); if(!ps.length) return '';
+      return `<h2 class="sec">${esc(c)} <small>mais vendidos</small><button class="seeall" data-cat="${esc(c)}">Ver todos (${all.length})</button></h2><div class="grid">${ps.map(card).join('')}</div>`}).join('');
+    return;
+  }
+  const head=cat?`<h2 class="sec">${esc(cat)} <small>${r.length} produtos</small></h2>`:`<h2 class="sec">Resultados <small>${r.length} produtos</small></h2>`;
+  const ord=[...r].sort((a,b)=>(a.top||999)-(b.top||999)||a.preco-b.preco);
+  $('list').innerHTML=head+`<div class="grid">${ord.slice(0,shown).map(card).join('')}</div>`+(r.length>shown?`<div class="more"><button data-more="1">Mostrar mais (${r.length-shown})</button></div>`:'');
 }
 function chips(){
-  $('chips').innerHTML=[['','Todos'],...D.categorias.map(c=>[c,c])].map(([v,l])=>`<button class="chip" data-cat="${esc(v)}" aria-pressed="${cat===v}">${esc(l)}</button>`).join('');
+  $('chips').innerHTML=[['','Mais vendidos'],...D.categorias.map(c=>[c,c])].map(([v,l])=>`<button class="chip" data-cat="${esc(v)}" aria-pressed="${cat===v}">${esc(l)}</button>`).join('');
 }
 const byId=id=>D.produtos.find(p=>p.id===id);
 function count(){return Object.values(cart).reduce((a,b)=>a+b,0)}
@@ -250,10 +260,11 @@ function openModal(id){
 function closeModal(){$('modal').hidden=true;document.body.style.overflow=''}
 
 document.addEventListener('click',e=>{
-  const t=e.target.closest('[data-add],[data-open],[data-cat],[data-inc],[data-dec]'); if(!t) return;
+  const t=e.target.closest('[data-add],[data-open],[data-cat],[data-inc],[data-dec],[data-more]'); if(!t) return;
+  if(t.dataset.more){shown+=48; render(); return;}
   if(t.dataset.add){cart[t.dataset.add]=(cart[t.dataset.add]||0)+1; refreshCart(); render(); if(!$('modal').hidden) closeModal();}
   else if(t.dataset.open) openModal(t.dataset.open);
-  else if(t.dataset.cat!==undefined){cat=t.dataset.cat; chips(); render(); window.scrollTo({top:document.querySelector('.tools').offsetTop,behavior:'smooth'});}
+  else if(t.dataset.cat!==undefined){cat=t.dataset.cat; shown=48; chips(); render(); window.scrollTo({top:document.querySelector('.tools').offsetTop,behavior:'smooth'});}
   else if(t.dataset.inc){cart[t.dataset.inc]++; refreshCart(); render();}
   else if(t.dataset.dec){if(--cart[t.dataset.dec]<=0) delete cart[t.dataset.dec]; refreshCart(); render();}
 });
@@ -263,7 +274,7 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();closeD
 for(const id of ['pay','nome','bairro']) $(id).addEventListener('input',updateSend);
 $('pay').addEventListener('change',updateSend);
 $('form').addEventListener('submit',e=>e.preventDefault());
-let qt; $('q').addEventListener('input',e=>{clearTimeout(qt);qt=setTimeout(()=>{q=e.target.value;render()},150)});
+let qt; $('q').addEventListener('input',e=>{clearTimeout(qt);qt=setTimeout(()=>{q=e.target.value;shown=48;if(q.trim()&&cat){cat='';chips();}render()},150)});
 
 fetch('dados.json',{cache:'no-cache'}).then(r=>r.json()).then(d=>{
   D=d;
